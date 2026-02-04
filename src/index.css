@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", cursive;
+  --font-fantasy: "Cinzel", serif;
+
+  --color-gold: #FFD700;
+  --color-bronze: #CD7F32;
+  --color-health: #DC2626;
+  --color-mana: #3B82F6;
+  --color-stamina: #22C55E;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.parchment {
+  background: linear-gradient(to bottom, #f4e4c1 0%, #e8d4a8 100%);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+  }
+}
+
+.potion-slot {
+  /* ensure wrapper matches slot shape and can contain inner glow */
+  display: inline-block;
+  border-radius: 0.5rem;
+  /* matches .rounded-lg (8px) used on the slot */
+  overflow: hidden;
+}
+
+/* Old pulse glow removed as per user request for clean radial aura */
+.potion-slot {
+  /* ensure wrapper matches slot shape and can contain inner glow */
+  display: inline-block;
+}
+
+@keyframes level-up {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.level-badge {
+  animation: level-up 2s ease-in-out infinite;
+}
