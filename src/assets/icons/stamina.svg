@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <g transform="translate(0, 20)">
+        <!-- Center Bolt (Green) -->
+        <path fill="#22c55e" d="M224 480L224 320L128 320L288 32L288 192L384 192L224 480Z" />
+        
+        <!-- Up Arrow Left (Yellow/Gold for Power Up) -->
+        <path fill="#fbbf24" d="M56 256L8 256L72 160L136 256L88 256L88 352L56 352L56 256Z" />
+        
+        <!-- Up Arrow Right (Yellow/Gold for Power Up) -->
+        <path fill="#fbbf24" d="M416 256L368 256L432 160L496 256L448 256L448 352L416 352L416 256Z" />
+    </g>
+</svg>
