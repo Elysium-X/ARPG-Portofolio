@@ -17,6 +17,7 @@ function Home() {
         webmSrc={bgVideoWebm}
         overlayOpacity={0.6}
       />
+      <div className="page-enter stagger-children">
       {/* Character Header */}
       <CharacterHeader {...CHARACTER_DATA} />
 
@@ -73,6 +74,7 @@ function Home() {
           ))}
         </div>
       </Card>
+      </div>
     </>
   )
 }

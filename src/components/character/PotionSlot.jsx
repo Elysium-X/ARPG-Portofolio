@@ -11,7 +11,7 @@ function PotionSlot({ emoji, name, color }) {
       </div>
 
       {/* Icon Layer */}
-      <div className="absolute inset-0 flex items-center justify-center text-center text-gold cursor-pointer transform transition-transform group-hover:scale-110 z-20">
+      <div className="absolute inset-0 flex items-center justify-center text-center text-gold cursor-pointer transform transition-transform group-hover:animate-breathe z-20">
         <div className="drop-shadow-glow">{emoji}</div>
       </div>
 

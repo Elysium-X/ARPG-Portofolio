@@ -78,7 +78,7 @@ function Contact() {
         webmSrc={bgVideoWebm}
         overlayOpacity={0.6}
       />
-      <div className="max-w-3xl mx-auto">
+      <div className="page-enter stagger-children max-w-3xl mx-auto">
         <Card variant="parchment" padding="lg" className="mb-6">
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl font-fantasy font-bold text-gray-900 mb-4">

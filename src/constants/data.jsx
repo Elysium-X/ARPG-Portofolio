@@ -127,7 +127,7 @@ export const RESOURCES = [
   {
     icon: <Icons.Hearts />,
     label: 'Health',
-    value: 100,
+    value: 98,
     max: 100,
     color: 'bg-health',
     bgColor: 'bg-red-900',
@@ -136,7 +136,7 @@ export const RESOURCES = [
   {
     icon: <Icons.WaterDrop />,
     label: 'Mana',
-    value: 95,
+    value: 90,
     max: 100,
     color: 'bg-mana',
     bgColor: 'bg-blue-900',
@@ -145,7 +145,7 @@ export const RESOURCES = [
   {
     icon: <Icons.LightningHelix />,
     label: 'Stamina',
-    value: 88,
+    value: 86,
     max: 100,
     color: 'bg-stamina',
     bgColor: 'bg-green-900',
