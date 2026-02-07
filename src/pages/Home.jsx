@@ -4,11 +4,19 @@ import ResourceBar from '../components/character/ResourceBar'
 import PotionSlot from '../components/character/PotionSlot'
 import SkillCard from '../components/character/SkillCard'
 import Achievement from '../components/character/Achievement'
+import BackgroundVideo from '../components/ui/BackgroundVideo'
+import bgPoster from '../assets/dropback.webp'
+import bgVideoWebm from '../assets/soldier.webm'
 import { CHARACTER_DATA, SKILLS, POTIONS, ACHIEVEMENTS, RESOURCES } from '../constants/data'
 
 function Home() {
   return (
     <>
+      <BackgroundVideo
+        posterSrc={bgPoster}
+        webmSrc={bgVideoWebm}
+        overlayOpacity={0.6}
+      />
       {/* Character Header */}
       <CharacterHeader {...CHARACTER_DATA} />
 
