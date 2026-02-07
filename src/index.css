@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --font-pixel: "Press Start 2P", cursive;
   --font-fantasy: "Cinzel", serif;
@@ -12,7 +16,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background-color: #1a1a2e;
+  color: white;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -24,32 +29,11 @@ body {
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-  }
-
-  50% {
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
-  }
-}
-
-.potion-slot {
-  /* ensure wrapper matches slot shape and can contain inner glow */
-  display: inline-block;
-  border-radius: 0.5rem;
-  /* matches .rounded-lg (8px) used on the slot */
-  overflow: hidden;
-}
-
-/* Old pulse glow removed as per user request for clean radial aura */
 .potion-slot {
   /* ensure wrapper matches slot shape and can contain inner glow */
   display: inline-block;
