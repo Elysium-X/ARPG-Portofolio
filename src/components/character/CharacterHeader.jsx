@@ -2,7 +2,7 @@ import Card from '../ui/Card'
 import ProgressBar from '../ui/ProgressBar'
 import travellerImg from '../../assets/traveller.webp'
 
-function CharacterHeader({ name, level, xp, maxXp }) {
+function CharacterHeader({ name, level, xp, maxXp, color }) {
   return (
     <Card variant="glass" padding="lg" className="mb-6 shadow-2xl">
       <div className="flex flex-col md:flex-row items-center gap-6">
@@ -38,7 +38,7 @@ function CharacterHeader({ name, level, xp, maxXp }) {
               value={xp}
               max={maxXp}
               showPercentage={false}
-              color="from-purple-500 via-pink-500 to-gold"
+              color={color}
               height="h-6"
               animated={true}
             />
