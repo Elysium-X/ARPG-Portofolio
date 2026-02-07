@@ -1,19 +1,9 @@
 // Character Data
-import {
-  GiHealthPotion,
-  GiMagicPotion,
-  GiPotionBall,
-  GiScrollUnfurled,
-  GiTrophy,
-  GiSwordsPower,
-  GiRocket,
-  GiBookCover,
-  GiHearts,
-  GiWaterDrop,
-  GiLightningHelix
-} from 'react-icons/gi';
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiReactquery } from 'react-icons/si';
+import { Icons } from '../components/ui/Icons';
+import WarriorIcon from '../assets/warrior.webp';
+import SlayerIcon from '../assets/slayer.webp';
+import DeployIcon from '../assets/deploy.webp';
+import SeekerIcon from '../assets/seeker.webp';
 
 export const CHARACTER_DATA = {
   name: 'Youssef Tarek',
@@ -21,6 +11,7 @@ export const CHARACTER_DATA = {
   xp: 8500,
   maxXp: 10000,
   class: 'Full Stack Developer',
+  color: "from-purple-500 via-pink-500 to-gold"
 }
 
 // Skills Data
@@ -28,7 +19,7 @@ export const SKILLS = [
   {
     name: 'HTML',
     level: 95,
-    icon: <FaHtml5 />,
+    icon: <Icons.Html5 />,
     iconColor: 'text-orange-600',
     color: 'from-orange-500 to-red-500',
     rank: 'Master',
@@ -36,7 +27,7 @@ export const SKILLS = [
   {
     name: 'CSS',
     level: 90,
-    icon: <FaCss3Alt />,
+    icon: <Icons.Css3 />,
     iconColor: 'text-blue-600',
     color: 'from-blue-500 to-purple-500',
     rank: 'Master',
@@ -44,7 +35,7 @@ export const SKILLS = [
   {
     name: 'Tailwind',
     level: 85,
-    icon: <SiTailwindcss />,
+    icon: <Icons.Tailwind />,
     iconColor: 'text-cyan-500',
     color: 'from-cyan-500 to-blue-600',
     rank: 'Expert',
@@ -52,7 +43,7 @@ export const SKILLS = [
   {
     name: 'JavaScript',
     level: 92,
-    icon: <FaJs />,
+    icon: <Icons.Js />,
     iconColor: 'text-yellow-400',
     color: 'from-yellow-400 to-orange-500',
     rank: 'Master',
@@ -60,7 +51,7 @@ export const SKILLS = [
   {
     name: 'React',
     level: 88,
-    icon: <FaReact />,
+    icon: <Icons.React />,
     iconColor: 'text-cyan-400',
     color: 'from-cyan-400 to-blue-500',
     rank: 'Expert',
@@ -68,7 +59,7 @@ export const SKILLS = [
   {
     name: 'Redux',
     level: 80,
-    icon: <SiRedux />,
+    icon: <Icons.Redux />,
     iconColor: 'text-purple-600',
     color: 'from-purple-500 to-pink-500',
     rank: 'Advanced',
@@ -76,7 +67,7 @@ export const SKILLS = [
   {
     name: 'TanStack Query',
     level: 82,
-    icon: <SiReactquery />,
+    icon: <Icons.ReactQuery />,
     iconColor: 'text-red-500',
     color: 'from-red-500 to-pink-500',
     rank: 'Advanced',
@@ -86,22 +77,22 @@ export const SKILLS = [
 // Potions Data
 export const POTIONS = [
   {
-    emoji: <GiHealthPotion size={32} />,
+    emoji: <Icons.HealthPotion size={32} />,
     name: 'Coffee Potion',
     color: 'bg-gradient-to-br from-amber-700 to-yellow-900',
   },
   {
-    emoji: <GiMagicPotion size={32} />,
+    emoji: <Icons.MagicPotion size={32} />,
     name: 'Energy Drink',
     color: 'bg-gradient-to-br from-blue-500 to-cyan-600',
   },
   {
-    emoji: <GiPotionBall size={32} />,
+    emoji: <Icons.PotionBall size={32} />,
     name: 'Focus Elixir',
     color: 'bg-gradient-to-br from-purple-500 to-pink-600',
   },
   {
-    emoji: <GiScrollUnfurled size={32} />,
+    emoji: <Icons.ScrollUnfurled size={32} />,
     name: 'Debug Scroll',
     color: 'bg-gradient-to-br from-yellow-600 to-orange-700',
   },
@@ -110,22 +101,22 @@ export const POTIONS = [
 // Achievements Data
 export const ACHIEVEMENTS = [
   {
-    icon: <GiTrophy />,
+    icon: <img src={WarriorIcon} alt="Warrior" className="w-28 h-28 object-contain drop-shadow-md" loading="lazy" decoding="async" />,
     name: 'Code Warrior',
     iconColor: 'text-blue-400',
   },
   {
-    icon: <GiSwordsPower />,
+    icon: <img src={SlayerIcon} alt="Bug Slayer" className="w-28 h-28 object-contain drop-shadow-md" loading="lazy" decoding="async" />,
     name: 'Bug Slayer',
     iconColor: 'text-green-500',
   },
   {
-    icon: <GiRocket />,
+    icon: <img src={DeployIcon} alt="Deploy Master" className="w-28 h-28 object-contain drop-shadow-md" loading="lazy" decoding="async" />,
     name: 'Deploy Master',
     iconColor: 'text-orange-500',
   },
   {
-    icon: <GiBookCover />,
+    icon: <img src={SeekerIcon} alt="Knowledge Seeker" className="w-28 h-28 object-contain drop-shadow-md" loading="lazy" decoding="async" />,
     name: 'Knowledge Seeker',
     iconColor: 'text-purple-400',
   },
@@ -134,27 +125,30 @@ export const ACHIEVEMENTS = [
 // Resources Data
 export const RESOURCES = [
   {
-    icon: <GiHearts />,
+    icon: <Icons.Hearts />,
     label: 'Health',
     value: 100,
     max: 100,
     color: 'bg-health',
     bgColor: 'bg-red-900',
+    iconColor: 'text-red-500',
   },
   {
-    icon: <GiWaterDrop />,
+    icon: <Icons.WaterDrop />,
     label: 'Mana',
     value: 95,
     max: 100,
     color: 'bg-mana',
     bgColor: 'bg-blue-900',
+    iconColor: 'text-blue-400',
   },
   {
-    icon: <GiLightningHelix />,
+    icon: <Icons.LightningHelix />,
     label: 'Stamina',
     value: 88,
     max: 100,
     color: 'bg-stamina',
     bgColor: 'bg-green-900',
+    iconColor: 'text-green-500',
   },
 ]
