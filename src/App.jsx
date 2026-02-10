@@ -3,6 +3,9 @@ import { lazy, Suspense } from 'react'
 import ErrorBoundary from './components/ui/ErrorBoundary'
 import Layout from './components/layout/Layout'
 import ScrollToTop from './components/ui/ScrollToTop'
+import BackgroundVideo from './components/ui/BackgroundVideo'
+import bgPoster from './assets/dropback.webp'
+import bgVideoWebm from './assets/soldier.webm'
 
 // Lazy load route components for code splitting
 const Home = lazy(() => import('./pages/Home'))
@@ -20,6 +23,11 @@ function App() {
     <ErrorBoundary>
       <Router>
         <ScrollToTop />
+        <BackgroundVideo
+          posterSrc={bgPoster}
+          webmSrc={bgVideoWebm}
+          overlayOpacity={0.6}
+        />
         <Layout>
           <Suspense fallback={<PageLoader />}>
             <Routes>
