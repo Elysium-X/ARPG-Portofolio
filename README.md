@@ -1,11 +1,17 @@
-# 🎮 Youssef Tarek – ARPG Portfolio.
+# 🎮 Youssef Tarek – ARPG Portfolio
 
-This project is part of my personal portfolio.
+This project is part of my personal portfolio.  
 You’re welcome to explore and learn from the code, but please don’t claim it as your own.
+
 An **Action-RPG–inspired personal portfolio** that presents skills and experience like a character sheet.  
 The project blends **fantasy UI elements** (parchment, glass, RPG panels) with **modern frontend practices**, keeping everything clear, fast, and easy to scan.
 
-Built with **React 18**, **Vite**, **Tailwind CSS v4**, and **React Router v6**.
+## 🛠 Tech Stack
+![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-5-purple?style=for-the-badge&logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-skyblue?style=for-the-badge&logo=tailwind-css)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript)
+![React Router](https://img.shields.io/badge/React%20Router-v6-red?style=for-the-badge&logo=react-router)
 
 ---
 
@@ -19,15 +25,6 @@ Built with **React 18**, **Vite**, **Tailwind CSS v4**, and **React Router v6**.
 
 ---
 
-## 🛠 Tech Stack
-
-- **JavaScript (ES6+)** – Modern language features  
-- **React 18** – Component-based UI with hooks  
-- **Vite v5** – Lightning-fast dev server and builds  
-- **Tailwind CSS v4** – Utility-first styling  
-- **React Router v6** – Declarative routing  
-
----
 
 ## 🚀 Key Features
 
@@ -106,6 +103,4 @@ npm run preview
 ## 📜 License & Usage
 
 **MIT**
-
-
 
