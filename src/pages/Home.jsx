@@ -5,6 +5,7 @@ import PotionSlot from '../components/character/PotionSlot'
 import SkillCard from '../components/character/SkillCard'
 import Achievement from '../components/character/Achievement'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import InventoryIcon from '../assets/inventory.png'
 import { CHARACTER_DATA, SKILLS, POTIONS, ACHIEVEMENTS, RESOURCES } from '../constants/data'
 
 function Home() {
@@ -38,12 +39,26 @@ function Home() {
           {/* Potion Inventory */}
           <ScrollReveal delay={200}>
             <Card padding="md">
-              <h2 className="text-2xl font-fantasy font-bold text-gold mb-4 text-center">
-                🧪 Quick Slots 🧪
+              <h2 className="text-2xl font-fantasy font-bold text-gold mb-6 text-center">
+                <span className="inline-flex items-center justify-center gap-1 whitespace-nowrap">
+                  <img
+                    src={InventoryIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain shrink-0"
+                  />
+                  <span>Quick Slots</span>
+                  <img
+                    src={InventoryIcon}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain shrink-0"
+                  />
+                </span>
               </h2>
-              <div className="grid grid-cols-4 gap-3 md:gap-4">
+              <div className="mt-6 grid grid-cols-4 gap-3 md:gap-4">
                 {POTIONS.map((potion, index) => (
-                  <PotionSlot key={index} {...potion} />
+                  <PotionSlot key={index} {...potion} hotkey={index + 1} />
                 ))}
               </div>
               <div className="mt-4 p-3 bg-amber-900 bg-opacity-30 rounded-lg text-center">
@@ -72,8 +87,12 @@ function Home() {
         {/* Achievements */}
         <ScrollReveal>
           <Card padding="lg">
-            <h2 className="text-3xl md:text-4xl font-fantasy font-bold text-gold mb-6 text-center">
-              🏆 Achievements Unlocked 🏆
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-fantasy font-bold text-gold mb-6 text-center">
+              <span className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+                <span aria-hidden="true" className="text-[0.9em] ">🏆</span>
+                <span>Achievements Unlocked</span>
+                <span aria-hidden="true" className="text-[0.9em] ">🏆</span>
+              </span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {ACHIEVEMENTS.map((achievement, index) => (
