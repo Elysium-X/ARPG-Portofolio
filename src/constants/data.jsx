@@ -97,7 +97,7 @@ export const SKILLS = [
 export const POTIONS = [
   {
     emoji: <img src={CoffeeIcon} alt="Coffee Potion" className="w-full h-full object-contain drop-shadow-md" />,
-    name: 'Coffee Potion',
+    name: 'Coffee',
     color: 'bg-gradient-to-br from-amber-700 to-yellow-900',
   },
   {
