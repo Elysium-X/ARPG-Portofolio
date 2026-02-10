@@ -8,7 +8,7 @@ The project blends **fantasy UI elements** (parchment, glass, RPG panels) with *
 
 ## 🛠 Tech Stack
 ![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
-![Vite](https://img.shields.io/badge/Vite-5-purple?style=for-the-badge&logo=vite)
+![Vite](https://img.shields.io/badge/Vite-7.3.1-purple?style=for-the-badge&logo=vite)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-skyblue?style=for-the-badge&logo=tailwind-css)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript)
 ![React Router](https://img.shields.io/badge/React%20Router-v6-red?style=for-the-badge&logo=react-router)
