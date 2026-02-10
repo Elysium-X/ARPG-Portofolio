@@ -23,12 +23,8 @@ function CharacterHeader({ name, level, xp, maxXp, color }) {
           <h1 className="text-4xl md:text-5xl font-fantasy font-bold text-gold mb-2">
             {name}
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-amber-200 font-fantasy mb-4">
-            <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
-              <span aria-hidden="true">⚔️</span>
-              <span>Frontend Developer</span>
-              <span aria-hidden="true">⚔️</span>
-            </span>
+          <p className="text-xl md:text-2xl text-amber-200 font-fantasy mb-4">
+            ⚔️ Frontend Developer ⚔️
           </p>
 
           <div className="mb-2">

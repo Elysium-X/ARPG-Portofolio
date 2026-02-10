@@ -7,7 +7,6 @@ import ScrollReveal from '../components/ui/ScrollReveal'
 import gitIcon from '../assets/socials/git.webp'
 import linkedInIcon from '../assets/socials/linkedin.webp'
 import mailIcon from '../assets/socials/mail.webp'
-import scrollIcon from '../assets/yscroll.png'
 import { validateContactForm } from '../utils/validation'
 
 function Contact() {
@@ -58,66 +57,31 @@ function Contact() {
       })
 
       setTimeout(() => {
-        setSubmitSuccess(false) // Hide the success message after 5 seconds
+        setSubmitSuccess(false)
       }, 5000)
 
     } catch (error) {
       console.error('Error submitting form:', error)
       setErrors({ submit: 'Failed to send message. Please try again.' })
     } finally {
-      setIsSubmitting(false) // Stop the loading state
+      setIsSubmitting(false)
     }
   }
 
   return (
     <>
-      <div className="max-w-4xl mx-auto px-4 py-8 relative z-10">
+      <div className="max-w-3xl mx-auto px-4 py-8 relative z-10">
         <ScrollReveal>
-          <div className="group mb-6">
-            <Card variant="parchment" className="relative overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_20px_60px_-15px_rgba(217,169,78,0.3)]">
-
-              {/* Parchment texture overlay */}
-              <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(139,90,43,0.15)_100%)]" />
-
-              <div className="relative z-10 py-6 px-4 md:px-8">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-
-                  {/* Scroll icon — 256x256, on the left */}
-                  <img
-                    src={scrollIcon}
-                    alt=""
-                    aria-hidden="true"
-                    className="w-70 h-70 object-contain shrink-0 drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"
-                  />
-
-                  {/* Text + button centered */}
-                  <div className="flex flex-col items-center text-center max-w-lg">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-fantasy font-bold text-gray-900 mb-3 leading-tight tracking-wide drop-shadow-sm">
-                      Send me a Quest Message!
-                    </h1>
-                    <p className="text-base md:text-xl text-amber-800/90 font-fantasy leading-relaxed mb-5">
-                      Ready to embark on a new adventure together? Get in touch
-                    </p>
-
-                    {/* Download CV CTA */}
-                    <a
-                      href="/cv.pdf"
-                      download
-                      className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-700 text-amber-100 font-fantasy font-semibold text-base rounded-lg shadow-lg border-2 border-amber-900/40 transition-all duration-300 hover:from-yellow-600 hover:via-amber-600 hover:to-yellow-600 hover:shadow-[0_0_20px_rgba(217,169,78,0.4)] hover:scale-105 hover:-translate-y-0.5 active:scale-100"
-                    >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                      </svg>
-                      Download CV
-                    </a>
-                  </div>
-
-                </div>
-              </div>
-            </Card>
-          </div>
+          <Card variant="parchment" padding="lg" className="mb-6">
+            <div className="text-center mb-8">
+              <h1 className="text-4xl md:text-5xl font-fantasy font-bold text-gray-900 mb-4">
+                📬 Send me a Quest Message
+              </h1>
+              <p className="text-lg text-amber-800 font-fantasy">
+                Ready to embark on a new adventure together? Drop me a message!
+              </p>
+            </div>
+          </Card>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>

@@ -4,16 +4,13 @@ import WarriorIcon from '../assets/warrior.webp';
 import SlayerIcon from '../assets/slayer.webp';
 import DeployIcon from '../assets/deploy.webp';
 import SeekerIcon from '../assets/seeker.webp';
-import CoffeeIcon from '../assets/slots/coffe.png';
-import HpIcon from '../assets/slots/hp.png';
-import MpIcon from '../assets/slots/mp.png';
-import FScrollIcon from '../assets/slots/fscroll.png';
 
 export const CHARACTER_DATA = {
   name: 'Youssef Tarek',
   level: 25,
   xp: 8500,
   maxXp: 10000,
+  class: 'Full Stack Developer',
   color: "from-purple-500 via-pink-500 to-gold"
 }
 
@@ -52,14 +49,6 @@ export const SKILLS = [
     rank: 'Master',
   },
   {
-    name: 'TypeScript',
-    level: 82,
-    icon: <Icons.TypeScript />,
-    iconColor: 'text-blue-600',
-    color: 'from-blue-600 to-blue-400',
-    rank: 'Advanced',
-  },
-  {
     name: 'React',
     level: 88,
     icon: <Icons.React />,
@@ -83,35 +72,27 @@ export const SKILLS = [
     color: 'from-red-500 to-pink-500',
     rank: 'Advanced',
   },
-  {
-    name: 'Vite',
-    level: 85,
-    icon: <Icons.Vite />,
-    iconColor: 'text-purple-500',
-    color: 'from-purple-500 to-cyan-400',
-    rank: 'Expert',
-  },
 ]
 
 // Potions Data
 export const POTIONS = [
   {
-    emoji: <img src={CoffeeIcon} alt="Coffee Potion" className="w-full h-full object-contain drop-shadow-md" />,
+    emoji: <Icons.HealthPotion size={32} />,
     name: 'Coffee Potion',
     color: 'bg-gradient-to-br from-amber-700 to-yellow-900',
   },
   {
-    emoji: <img src={HpIcon} alt="Health Potion" className="w-full h-full object-contain drop-shadow-md" />,
-    name: 'Health Potion',
-    color: 'bg-gradient-to-br from-red-500 to-rose-600',
-  },
-  {
-    emoji: <img src={MpIcon} alt="Mana Potion" className="w-full h-full object-contain drop-shadow-md" />,
-    name: 'Mana Potion',
+    emoji: <Icons.MagicPotion size={32} />,
+    name: 'Energy Drink',
     color: 'bg-gradient-to-br from-blue-500 to-cyan-600',
   },
   {
-    emoji: <img src={FScrollIcon} alt="Debug Scroll" className="w-full h-full object-contain drop-shadow-md" />,
+    emoji: <Icons.PotionBall size={32} />,
+    name: 'Focus Elixir',
+    color: 'bg-gradient-to-br from-purple-500 to-pink-600',
+  },
+  {
+    emoji: <Icons.ScrollUnfurled size={32} />,
     name: 'Debug Scroll',
     color: 'bg-gradient-to-br from-yellow-600 to-orange-700',
   },
