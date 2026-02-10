@@ -1,12 +1,11 @@
 import { useState, useEffect, memo, useRef } from 'react';
-import { fireAudioBase64 } from '../../constants/audioAssets';
+import { fireAudioBase64 } from '../../utils/audioAssets';
 
 const BackgroundVideo = memo(({ webmSrc, posterSrc, overlayOpacity = 0.5 }) => {
     const [reduceMotion, setReduceMotion] = useState(false);
     const [isMobileOrSaver, setIsMobileOrSaver] = useState(false);
     const [videoLoaded, setVideoLoaded] = useState(false);
     const [isMuted, setIsMuted] = useState(true);
-    const [audioBlobUrl, setAudioBlobUrl] = useState(null);
     const audioRef = useRef(null);
 
     useEffect(() => {
