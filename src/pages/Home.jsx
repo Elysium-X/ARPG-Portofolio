@@ -7,6 +7,7 @@ import Achievement from '../components/character/Achievement'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import InventoryIcon from '../assets/inventory.png'
 import { CHARACTER_DATA, SKILLS, POTIONS, ACHIEVEMENTS, RESOURCES } from '../constants/data'
+import treeIcon from '../assets/tree.png'
 
 function Home() {
   return (
@@ -72,7 +73,25 @@ function Home() {
         <ScrollReveal>
           <Card padding="lg" className="mb-6">
             <h2 className="text-3xl md:text-4xl font-fantasy font-bold text-gold mb-6 text-center">
-              ⚔️ Skill Tree ⚔️
+              <span className="inline-flex items-center justify-center gap-3 md:gap-4">
+                <img
+                  src={treeIcon}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-7 h-7 md:w-16 md:h-16 object-contain md:scale-[1.85]"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span>Skill Tree</span>
+                <img
+                  src={treeIcon}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-7 h-7 md:w-16 md:h-16 object-contain md:scale-[1.85]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {SKILLS.map((skill, index) => (

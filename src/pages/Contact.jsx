@@ -74,7 +74,7 @@ function Contact() {
       <div className="max-w-4xl mx-auto px-4 py-8 relative z-10">
         <ScrollReveal>
           <div className="group mb-6">
-            <Card variant="parchment" className="relative overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_20px_60px_-15px_rgba(217,169,78,0.3)]">
+            <Card variant="parchment" className="relative overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-[0_1.25rem_3.75rem_-0.9375rem_rgba(217,169,78,0.3)]">
 
               {/* Parchment texture overlay */}
               <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(139,90,43,0.15)_100%)]" />
@@ -103,7 +103,7 @@ function Contact() {
                     <a
                       href="/cv.pdf"
                       download
-                      className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-700 text-amber-100 font-fantasy font-semibold text-base rounded-lg shadow-lg border-2 border-amber-900/40 transition-all duration-300 hover:from-yellow-600 hover:via-amber-600 hover:to-yellow-600 hover:shadow-[0_0_20px_rgba(217,169,78,0.4)] hover:scale-105 hover:-translate-y-0.5 active:scale-100"
+                      className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-700 text-amber-100 font-fantasy font-semibold text-base rounded-lg shadow-lg border-2 border-amber-900/40 transition-all duration-300 hover:from-yellow-600 hover:via-amber-600 hover:to-yellow-600 hover:shadow-[0_0_1.25rem_rgba(217,169,78,0.4)] hover:scale-105 hover:-translate-y-0.5 active:scale-100"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -184,7 +184,7 @@ function Contact() {
                   variant="primary"
                   size="lg"
                   disabled={isSubmitting}
-                  className="min-w-[200px]"
+                  className="min-w-[12.5rem]"
                   ariaLabel={isSubmitting ? "Sending message" : "Send quest message"}
                 >
                   {isSubmitting ? (
@@ -210,17 +210,17 @@ function Contact() {
                 <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out">
                   <img src={gitIcon} alt="GitHub" className="w-16 h-16 object-contain mx-auto mb-2" loading="lazy" decoding="async" />
                   <p className="text-white font-fantasy text-sm">GitHub</p>
-                  <p className="text-gold text-xs">@yousseftarek</p>
+                  <p className="text-gold text-xs">@Elysium-X</p>
                 </div>
                 <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out">
                   <img src={linkedInIcon} alt="LinkedIn" className="w-16 h-16 object-contain mx-auto mb-2" loading="lazy" decoding="async" />
                   <p className="text-white font-fantasy text-sm">LinkedIn</p>
-                  <p className="text-gold text-xs">@yousseftarek</p>
+                  <p className="text-gold text-xs break-all">www.linkedin.com/in/yousseftarekk12</p>
                 </div>
                 <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out">
                   <img src={mailIcon} alt="Email" className="w-16 h-16 object-contain mx-auto mb-2" loading="lazy" decoding="async" />
                   <p className="text-white font-fantasy text-sm">Email</p>
-                  <p className="text-gold text-xs">youssef@realm.com</p>
+                  <p className="text-gold text-xs">yousseftarek98@gmail.com</p>
                 </div>
               </div>
             </div>

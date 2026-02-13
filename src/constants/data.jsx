@@ -104,16 +104,19 @@ export const POTIONS = [
     emoji: <img src={HpIcon} alt="Health Potion" className="w-full h-full object-contain drop-shadow-md" />,
     name: 'Health Potion',
     color: 'bg-gradient-to-br from-red-500 to-rose-600',
+    tooltipClass: 'text-[0.625rem]',
   },
   {
     emoji: <img src={MpIcon} alt="Mana Potion" className="w-full h-full object-contain drop-shadow-md" />,
     name: 'Mana Potion',
     color: 'bg-gradient-to-br from-blue-500 to-cyan-600',
+    tooltipClass: 'text-[0.625rem]',
   },
   {
     emoji: <img src={FScrollIcon} alt="Debug Scroll" className="w-full h-full object-contain drop-shadow-md" />,
     name: 'Debug Scroll',
     color: 'bg-gradient-to-br from-yellow-600 to-orange-700',
+    tooltipClass: 'text-[0.625rem]',
   },
 ]
 

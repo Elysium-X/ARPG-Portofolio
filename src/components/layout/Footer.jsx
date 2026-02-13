@@ -16,7 +16,7 @@ function Footer() {
         </p>
         <div className="flex items-center justify-center space-x-6 mt-4">
           <a
-            href="https://github.com"
+            href="https://github.com/Elysium-X"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-yellow-500 transition-all duration-500 ease-in-out transform hover:scale-110"
@@ -25,7 +25,7 @@ function Footer() {
             <img src={gitIcon} alt="GitHub" className="w-16 h-16 object-contain" loading="lazy" decoding="async" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/yousseftarekk12/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-yellow-500 transition-all duration-500 ease-in-out transform hover:scale-110"
@@ -34,7 +34,7 @@ function Footer() {
             <img src={linkedInIcon} alt="LinkedIn" className="w-16 h-16 object-contain" loading="lazy" decoding="async" />
           </a>
           <a
-            href="mailto:youssef@realm.com"
+            href="mailto:yousseftarek98@gmail.com"
             className="text-gold hover:text-yellow-500 transition-all duration-500 ease-in-out transform hover:scale-110"
             aria-label="Email"
           >
