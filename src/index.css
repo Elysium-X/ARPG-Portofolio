@@ -41,6 +41,18 @@ body {
   padding: 0;
 }
 
+/* Prevent browser autofill from overriding dark input styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #1f2937 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .parchment {
   background: linear-gradient(to bottom, #f4e4c1 0%, #e8d4a8 100%);
   box-shadow: 0 0.625rem 2.5rem rgba(0, 0, 0, 0.5);
