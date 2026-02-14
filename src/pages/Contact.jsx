@@ -9,6 +9,7 @@ import linkedInIcon from '../assets/socials/linkedin.webp'
 import mailIcon from '../assets/socials/mail.webp'
 import scrollIcon from '../assets/yscroll.png'
 import { validateContactForm } from '../utils/validation'
+import { sendContactEmail } from '../services/emailService'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -46,26 +47,22 @@ function Contact() {
 
     setIsSubmitting(true)
     setSubmitSuccess(false)
+    setErrors({})
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      await sendContactEmail(formData)
 
       setSubmitSuccess(true)
-      setFormData({
-        name: '',
-        email: '',
-        message: '',
-      })
+      setFormData({ name: '', email: '', message: '' })
 
       setTimeout(() => {
-        setSubmitSuccess(false) // Hide the success message after 5 seconds
+        setSubmitSuccess(false)
       }, 5000)
 
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      setErrors({ submit: 'Failed to send message. Please try again.' })
+    } catch {
+      setErrors({ submit: 'Failed to send quest message. Please try again.' })
     } finally {
-      setIsSubmitting(false) // Stop the loading state
+      setIsSubmitting(false)
     }
   }
 
@@ -129,7 +126,7 @@ function Contact() {
                   role="alert"
                   aria-live="polite"
                 >
-                  <p className="text-green-300 font-fantasy text-center">
+                  <p className="text-green-100 font-fantasy text-center">
                     ✨ Quest message sent successfully! I'll respond to your summons soon! ✨
                   </p>
                 </div>
@@ -141,7 +138,7 @@ function Contact() {
                   role="alert"
                   aria-live="assertive"
                 >
-                  <p className="text-red-300 font-fantasy text-center">{errors.submit}</p>
+                  <p className="text-sm text-white-100 font-pixel text-center">{errors.submit}</p>
                 </div>
               )}
 
