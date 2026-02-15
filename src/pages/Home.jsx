@@ -7,7 +7,7 @@ import Achievement from '../components/character/Achievement'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import InventoryIcon from '../assets/inventory.png'
 import { CHARACTER_DATA, SKILLS, POTIONS, ACHIEVEMENTS, RESOURCES } from '../constants/data'
-import treeIcon from '../assets/tree.png'
+import treeIcon from '../assets/tree1.png'
 
 function Home() {
   return (
