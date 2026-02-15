@@ -35,7 +35,7 @@ function ProgressBar({
           }
         })
       },
-      //Threshold is the percentage of the element that needs to be visible before the animation starts
+      // Threshold is the percentage of the element that needs to be visible before the animation starts
       { threshold: 0.1 }
     )
 
@@ -50,13 +50,16 @@ function ProgressBar({
     }
   }, [percentage, animated, delay])
 
-  //==================================
   return (
     <div className="w-full" ref={containerRef}>
       {/* Label and percentage */}
-      {label && (
+      {(label || showPercentage) && (
         <div className="flex justify-between items-center mb-1">
-          <span className="text-sm font-fantasy text-white">{label}</span>
+          {label ? (
+            <span className="text-sm font-fantasy text-white">{label}</span>
+          ) : (
+            <span />
+          )}
           {showPercentage && (
             <span className="text-xs font-pixel text-gold">{Math.round(progress)}%</span>
           )}
@@ -69,8 +72,8 @@ function ProgressBar({
           className={`h-full bg-gradient-to-r ${color} transition-all duration-1000 ease-out relative`}
           style={{ width: `${progress}%` }}
         >
-          {/* Progress bar animation */}
-          <div className="absolute inset-0 bg-white opacity-30 animate-pulse"></div>
+          {/* Shimmer animation */}
+          <div className="pixel-bar-shimmer" />
         </div>
       </div>
     </div>
