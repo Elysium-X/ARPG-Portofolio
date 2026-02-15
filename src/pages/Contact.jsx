@@ -196,7 +196,7 @@ function Contact() {
                   ) : (
                     <>
                       <span className="mr-2">🚀</span>
-                      Send Message
+                      Send Quest
                     </>
                   )}
                 </Button>

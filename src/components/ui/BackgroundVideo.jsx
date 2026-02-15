@@ -38,7 +38,8 @@ const BackgroundVideo = memo(({ webmSrc, posterSrc, overlayOpacity = 0.5 }) => {
             if (!isMuted) {
                 const playPromise = audioRef.current.play();
                 if (playPromise !== undefined) {
-                    playPromise.catch(e => console.log("Audio play failed (user interaction needed):", e));
+                    // Silently handle auto-play restrictions
+                    playPromise.catch(() => { });
                 }
             } else {
                 audioRef.current.pause();

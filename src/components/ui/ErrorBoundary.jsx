@@ -20,8 +20,7 @@ class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, errorInfo) {
-        // Log error details for debugging
-        console.error('Error caught by ErrorBoundary:', error, errorInfo)
+        // Store error details for debugging in development mode
         this.setState({
             error,
             errorInfo
