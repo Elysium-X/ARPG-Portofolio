@@ -1,5 +1,5 @@
 import { useState, useEffect, memo, useRef } from 'react';
-import { fireAudioBase64 } from '../../utils/audioAssets';
+import { fireAudioBase64 } from '../../utils/audio';
 
 const BackgroundVideo = memo(({ webmSrc, posterSrc, overlayOpacity = 0.5 }) => {
     const [reduceMotion, setReduceMotion] = useState(false);
