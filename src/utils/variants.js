@@ -6,9 +6,8 @@
 // Button variant styles
 export const BUTTON_VARIANTS = {
     primary: 'bg-gradient-to-r from-gold to-yellow-600 text-gray-900 hover:from-yellow-500 hover:to-gold shadow-lg hover:shadow-xl focus:ring-gold',
-    secondary: 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-500 hover:to-blue-500 shadow-lg hover:shadow-xl focus:ring-purple-500',
-    outline: 'border-2 border-gold text-gold hover:bg-gold hover:text-gray-900 glass-effect focus:ring-gold',
-    danger: 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-lg hover:shadow-xl focus:ring-red-500',
+    github: 'bg-gray-800/60 text-gray-200 border-2 border-gray-600/40 hover:bg-gray-700/60 hover:text-white hover:border-gray-500/60 focus:ring-gray-500',
+    amber: 'bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-700 text-amber-100 border-2 border-amber-900/40 hover:from-yellow-600 hover:via-amber-600 hover:to-yellow-600 hover:shadow-[0_0_1.25rem_rgba(217,169,78,0.4)] focus:ring-amber-500',
 }
 
 // Button size styles
@@ -25,7 +24,6 @@ export const BUTTON_BASE_STYLES = 'font-fantasy font-semibold rounded-lg transit
 export const CARD_VARIANTS = {
     glass: 'glass-effect border-4 border-amber-900',
     parchment: 'parchment border-8 border-amber-900',
-    dark: 'bg-gray-800 bg-opacity-70 border-2 border-gray-700',
 }
 
 // Card padding sizes

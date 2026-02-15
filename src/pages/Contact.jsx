@@ -3,6 +3,7 @@ import Card from '../components/ui/Card'
 import Input from '../components/ui/Input'
 import Textarea from '../components/ui/Textarea'
 import Button from '../components/ui/Button'
+import ActionButton from '../components/ui/ActionButton'
 import ScrollReveal from '../components/ui/ScrollReveal'
 import gitIcon from '../assets/socials/git.webp'
 import linkedInIcon from '../assets/socials/linkedin.webp'
@@ -97,18 +98,21 @@ function Contact() {
                     </p>
 
                     {/* Download CV CTA */}
-                    <a
+                    <ActionButton
                       href="/cv.pdf"
                       download
-                      className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-700 via-yellow-700 to-amber-700 text-amber-100 font-fantasy font-semibold text-base rounded-lg shadow-lg border-2 border-amber-900/40 transition-all duration-300 hover:from-yellow-600 hover:via-amber-600 hover:to-yellow-600 hover:shadow-[0_0_1.25rem_rgba(217,169,78,0.4)] hover:scale-105 hover:-translate-y-0.5 active:scale-100"
+                      variant="amber"
+                      className="px-6 py-2.5 text-base"
+                      icon={
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <polyline points="7 10 12 15 17 10" />
+                          <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                      }
                     >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                      </svg>
                       Download CV
-                    </a>
+                    </ActionButton>
                   </div>
 
                 </div>
