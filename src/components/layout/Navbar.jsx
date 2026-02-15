@@ -8,6 +8,7 @@ function Navbar() {
 
   const navLinks = [
     { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/projects', label: 'Projects', icon: '🎖️' },
     { path: '/contact', label: 'Contact', icon: '✉️' },
   ]
 
@@ -18,7 +19,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center space-x-2 hover:scale-105 transition-all duration-500 ease-in-out">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-gold overflow-hidden">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center border-4 border-amber-700 shadow-md overflow-hidden">
               <img
                 src={travellerImg}
                 alt="Youssef Tarek"

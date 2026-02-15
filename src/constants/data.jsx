@@ -174,3 +174,22 @@ export const RESOURCES = [
     iconColor: 'text-green-500',
   },
 ]
+
+// Projects Data
+export const PROJECTS = [
+  {
+    name: 'JooBank',
+    description: 'A modern banking landing page with a polished fintech UI, featuring responsive design, gradient effects, and smooth animations.',
+    techStack: ['React', 'Vite', 'Tailwind CSS', 'Reusable components', 'Responsive design', 'Gradient effects', 'Smooth animations'],
+    liveUrl: 'https://joo-bank.vercel.app/',
+    githubUrl: 'https://github.com/Elysium-X/JooBank',
+  },
+  {
+    name: "Joe's Corner",
+    description: 'A full-stack food ordering app with cart management, dark/light mode, and a custom Express backend with API endpoints.',
+    techStack: ['React', 'Vite', 'Tailwind CSS', , 'Redux-Toolkit', 'Express', 'Node.js', 'REST API', 'Backend integration'],
+    liveUrl: 'https://joe-corner.vercel.app/',
+    githubUrl: 'https://github.com/Elysium-X/Joe-s-Corner-',
+  },
+
+]

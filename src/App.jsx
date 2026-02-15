@@ -10,11 +10,12 @@ import bgVideoWebm from './assets/soldier.webm'
 // Lazy load route components for code splitting
 const Home = lazy(() => import('./pages/Home'))
 const Contact = lazy(() => import('./pages/Contact'))
+const Projects = lazy(() => import('./pages/Projects'))
 
 // Loading fallback component
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
-    <div className="text-gold text-xl font-fantasy animate-pulse">Loading...</div>
+    <div className="text-gold text-2xl font-pixel animate-pulse">Loading...</div>
   </div>
 )
 
@@ -32,6 +33,7 @@ function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
