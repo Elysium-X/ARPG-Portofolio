@@ -209,21 +209,34 @@ function Contact() {
                 🗺️ Other Ways to Reach Me
               </h3>
               <div className="grid md:grid-cols-3 gap-4 text-center">
-                <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out">
+                <a
+                  href="https://github.com/Elysium-X"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out cursor-pointer block"
+                >
                   <img src={gitIcon} alt="GitHub" className="w-16 h-16 object-contain mx-auto mb-2" loading="lazy" decoding="async" />
                   <p className="text-white font-fantasy text-sm">GitHub</p>
                   <p className="text-gold text-xs">@Elysium-X</p>
-                </div>
-                <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out">
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/yousseftarekk12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out cursor-pointer block"
+                >
                   <img src={linkedInIcon} alt="LinkedIn" className="w-16 h-16 object-contain mx-auto mb-2" loading="lazy" decoding="async" />
                   <p className="text-white font-fantasy text-sm">LinkedIn</p>
                   <p className="text-gold text-xs break-all">www.linkedin.com/in/yousseftarekk12</p>
-                </div>
-                <div className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out">
+                </a>
+                <a
+                  href="mailto:yousseftarek98@gmail.com"
+                  className="p-4 bg-gray-800 bg-opacity-50 rounded-lg transform hover:scale-105 transition-all duration-500 ease-in-out cursor-pointer block"
+                >
                   <img src={mailIcon} alt="Email" className="w-16 h-16 object-contain mx-auto mb-2" loading="lazy" decoding="async" />
                   <p className="text-white font-fantasy text-sm">Email</p>
                   <p className="text-gold text-xs">yousseftarek98@gmail.com</p>
-                </div>
+                </a>
               </div>
             </div>
           </Card>
