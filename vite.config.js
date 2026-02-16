@@ -5,10 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss()],
 
-  server: {
-    port: 3000,
-    open: true,
-  },
 
   build: {
     // Faster & recommended minifier
