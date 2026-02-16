@@ -9,6 +9,7 @@ import gitIcon from '../assets/socials/git.webp'
 import linkedInIcon from '../assets/socials/linkedin.webp'
 import mailIcon from '../assets/socials/mail.webp'
 import scrollIcon from '../assets/yscroll.png'
+import resumePDF from '../assets/Youssef_Tarek_Resume.pdf'
 import { validateContactForm } from '../utils/validation'
 import { sendContactEmail } from '../services/emailService'
 
@@ -99,7 +100,7 @@ function Contact() {
 
                     {/* Download CV CTA */}
                     <ActionButton
-                      href="/cv.pdf"
+                      href={resumePDF}
                       download
                       variant="amber"
                       className="px-6 py-2.5 text-base"
