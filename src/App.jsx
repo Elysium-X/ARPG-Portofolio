@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import ErrorBoundary from './components/ui/ErrorBoundary'
 import Layout from './components/layout/Layout'
+import AnalyticsTracker from './analytics/AnalyticsTracker'
 import ScrollToTop from './components/ui/ScrollToTop'
 import BackgroundVideo from './components/ui/BackgroundVideo'
 import bgPoster from './assets/dropback.webp'
@@ -23,6 +24,7 @@ function App() {
   return (
     <ErrorBoundary>
       <Router>
+        <AnalyticsTracker />
         <ScrollToTop />
         <BackgroundVideo
           posterSrc={bgPoster}

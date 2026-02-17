@@ -61,8 +61,8 @@ function Contact() {
         setSubmitSuccess(false)
       }, 5000)
 
-    } catch {
-      setErrors({ submit: 'Failed to send quest message. Please try again.' })
+    } catch (e) {
+      setErrors({ submit: e.message || 'Failed to send quest message. Please try again.' })
     } finally {
       setIsSubmitting(false)
     }
