@@ -20,7 +20,7 @@ function NotFound() {
                     <p className="text-white font-fantasy mb-4">
                         This area hasn't been explored yet.
                     </p>
-                    <ul className="text-left text-gray-300 space-y-2 font-pixel text-xs">
+                    <ul className="text-center text-gray-300 space-y-2 font-pixel text-xs">
                         <li>🗺️ Check the URL for typos</li>
                         <li>🏠 Return to the home page</li>
                         <li>📜 Browse available quests</li>
