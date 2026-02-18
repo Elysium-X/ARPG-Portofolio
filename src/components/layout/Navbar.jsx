@@ -36,7 +36,6 @@ function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => window.scrollTo(0, 0)}
                 className={`px-4 py-2 rounded-lg font-fantasy font-semibold transition-all duration-500 ease-in-out ${isActive(link.path)
                   ? 'bg-gold text-gray-900 shadow-lg'
                   : 'text-gold hover:bg-amber-900 hover:bg-opacity-30'
@@ -76,10 +75,7 @@ function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => {
-                  setIsOpen(false)
-                  window.scrollTo(0, 0)
-                }}
+                onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 rounded-lg font-fantasy font-semibold transition-all duration-300 mb-2 ${isActive(link.path)
                   ? 'bg-gold text-gray-900'
                   : 'text-gold hover:bg-amber-900 hover:bg-opacity-30'
