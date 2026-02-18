@@ -78,7 +78,7 @@ function Home() {
                   src={treeIcon}
                   alt=""
                   aria-hidden="true"
-                  className="w-7 h-7 md:w-16 md:h-16 object-contain md:scale-[1.85]"
+                  className="w-9 h-9 md:w-16 md:h-16 object-contain md:scale-[1.85]"
                   loading="lazy"
                   decoding="async"
                 />
@@ -87,7 +87,7 @@ function Home() {
                   src={treeIcon}
                   alt=""
                   aria-hidden="true"
-                  className="w-7 h-7 md:w-16 md:h-16 object-contain md:scale-[1.85]"
+                  className="w-9 h-9 md:w-16 md:h-16 object-contain md:scale-[1.85]"
                   loading="lazy"
                   decoding="async"
                 />
