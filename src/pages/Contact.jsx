@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Card from '../components/ui/Card'
 import Input from '../components/ui/Input'
 import Textarea from '../components/ui/Textarea'
@@ -20,9 +20,17 @@ function Contact() {
     message: '',
   })
 
+  // 'idle' | 'submitting' | 'success' | 'error'
+  const [status, setStatus] = useState('idle')
   const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const timerRef = useRef(null)
+
+  // Clear any pending timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -47,24 +55,20 @@ function Contact() {
       return
     }
 
-    setIsSubmitting(true)
-    setSubmitSuccess(false)
+    setStatus('submitting')
     setErrors({})
 
     try {
       await sendContactEmail(formData)
 
-      setSubmitSuccess(true)
+      setStatus('success')
       setFormData({ name: '', email: '', message: '' })
 
-      setTimeout(() => {
-        setSubmitSuccess(false)
-      }, 5000)
+      timerRef.current = setTimeout(() => setStatus('idle'), 5000)
 
-    } catch (e) {
-      setErrors({ submit: e.message || 'Failed to send quest message. Please try again.' })
-    } finally {
-      setIsSubmitting(false)
+    } catch (err) {
+      setStatus('error')
+      setErrors({ submit: err.message || 'Failed to send quest message. Please try again.' })
     }
   }
 
@@ -125,7 +129,7 @@ function Contact() {
         <ScrollReveal delay={100}>
           <Card padding="lg">
             <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact form">
-              {submitSuccess && (
+              {status === 'success' && (
                 <div
                   className="bg-green-500 bg-opacity-20 border-2 border-green-500 rounded-lg p-4 mb-4 animate-pulse"
                   role="alert"
@@ -137,7 +141,7 @@ function Contact() {
                 </div>
               )}
 
-              {errors.submit && (
+              {status === 'error' && errors.submit && (
                 <div
                   className="bg-red-500 bg-opacity-20 border-2 border-red-500 rounded-lg p-4 mb-4"
                   role="alert"
@@ -185,11 +189,11 @@ function Contact() {
                   type="submit"
                   variant="primary"
                   size="lg"
-                  disabled={isSubmitting}
+                  disabled={status === 'submitting'}
                   className="min-w-[12.5rem]"
-                  ariaLabel={isSubmitting ? "Sending message" : "Send quest message"}
+                  ariaLabel={status === 'submitting' ? "Sending message" : "Send quest message"}
                 >
-                  {isSubmitting ? (
+                  {status === 'submitting' ? (
                     <>
                       <span className="inline-block animate-spin mr-2">⚔️</span>
                       Sending...

@@ -12,6 +12,7 @@ import bgVideoWebm from './assets/soldier.webm'
 const Home = lazy(() => import('./pages/Home'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Projects = lazy(() => import('./pages/Projects'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Loading fallback component
 const PageLoader = () => (
@@ -37,6 +38,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </Layout>
