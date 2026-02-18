@@ -187,7 +187,7 @@ export const PROJECTS = [
   {
     name: "Joe's Corner",
     description: 'A full-stack food ordering app with cart management, dark/light mode, and a custom Express backend with API endpoints.',
-    techStack: ['React', 'Vite', 'Tailwind CSS', , 'Redux-Toolkit', 'Express', 'Node.js', 'REST API', 'Backend integration'],
+    techStack: ['React', 'Vite', 'Tailwind CSS', 'Redux-Toolkit', 'Express', 'Node.js', 'REST API', 'Backend integration'],
     liveUrl: 'https://joe-corner.vercel.app/',
     githubUrl: 'https://github.com/Elysium-X/Joe-s-Corner-',
   },
