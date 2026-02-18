@@ -1,64 +1,72 @@
-import { useState, useEffect, memo, useRef } from 'react';
+import { useState, useEffect, memo, useRef, useCallback } from 'react';
 import { fireAudioBase64 } from '../../utils/audio';
 
 const BackgroundVideo = memo(({ webmSrc, posterSrc, overlayOpacity = 0.5 }) => {
-    const [reduceMotion, setReduceMotion] = useState(false);
-    const [isMobileOrSaver, setIsMobileOrSaver] = useState(false);
-    const [videoLoaded, setVideoLoaded] = useState(false);
+    const [videoReady, setVideoReady] = useState(false);
     const [isMuted, setIsMuted] = useState(true);
     const audioRef = useRef(null);
 
-    useEffect(() => {
-        // 1. Check Reduced Motion
-        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const updateMotion = (e) => setReduceMotion(e.matches);
-        setReduceMotion(motionQuery.matches);
-        motionQuery.addEventListener('change', updateMotion);
+    // ── Derive whether video should play from media queries (no extra state) ──
+    const [canPlayVideo, setCanPlayVideo] = useState(() => {
+        if (typeof window === 'undefined') return false;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
+        const isDataSaver = navigator.connection?.saveData === true;
+        return !prefersReduced && !isMobile && !isDataSaver;
+    });
 
-        // 2. Check Mobile (< 768px for this case) & Data Saver
-        const checkPerformanceConstraints = () => {
-            const isMobile = window.matchMedia('(max-width: 767px)').matches;
-            const isDataSaver = navigator.connection?.saveData === true;
-            setIsMobileOrSaver(isMobile || isDataSaver);
+    useEffect(() => {
+        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const mobileQuery = window.matchMedia('(max-width: 767px)');
+
+        const update = () => {
+            const blocked =
+                motionQuery.matches ||
+                mobileQuery.matches ||
+                navigator.connection?.saveData === true;
+            setCanPlayVideo(!blocked);
         };
 
-        checkPerformanceConstraints();
-        window.addEventListener('resize', checkPerformanceConstraints);
+        motionQuery.addEventListener('change', update);
+        mobileQuery.addEventListener('change', update);
 
         return () => {
-            motionQuery.removeEventListener('change', updateMotion);
-            window.removeEventListener('resize', checkPerformanceConstraints);
+            motionQuery.removeEventListener('change', update);
+            mobileQuery.removeEventListener('change', update);
         };
     }, []);
 
-    // Handle Audio Playback separately
+    // ── Audio toggle ──
     useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.volume = 0.5;
-            if (!isMuted) {
-                const playPromise = audioRef.current.play();
-                if (playPromise !== undefined) {
-                    // Silently handle auto-play restrictions
-                    playPromise.catch(() => { });
-                }
-            } else {
-                audioRef.current.pause();
-            }
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        audio.volume = 0.5;
+
+        if (isMuted) {
+            audio.pause();
+        } else {
+            audio.play().catch(() => { });
         }
     }, [isMuted]);
 
-    // Determine if we should show video
-    const shouldPlayVideo = webmSrc && !reduceMotion && !isMobileOrSaver;
+    const toggleMute = useCallback(() => setIsMuted((m) => !m), []);
+
+    const shouldPlayVideo = webmSrc && canPlayVideo;
 
     return (
         <>
-            {/* Independent Audio Track - Hidden - Uses Base64 Data URI to bypass IDM */}
+            {/* Hidden audio track (Base64 to bypass IDM) */}
             <audio ref={audioRef} src={fireAudioBase64} loop preload="auto" />
 
-            <div className="fixed inset-0 w-full h-full -z-50 overflow-hidden bg-gray-900" onContextMenu={(e) => e.preventDefault()}>
-                {/* Poster Image (Always rendered as base/fallback) */}
+            <div
+                className="fixed inset-0 w-full h-full -z-50 overflow-hidden bg-gray-900"
+                onContextMenu={(e) => e.preventDefault()}
+            >
+                {/* Poster fallback */}
                 <div
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${videoLoaded && shouldPlayVideo ? 'opacity-0' : 'opacity-100'}`}
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${videoReady && shouldPlayVideo ? 'opacity-0' : 'opacity-100'
+                        }`}
                 >
                     <img
                         src={posterSrc}
@@ -67,39 +75,40 @@ const BackgroundVideo = memo(({ webmSrc, posterSrc, overlayOpacity = 0.5 }) => {
                     />
                 </div>
 
-                {/* Video (Only rendered if conditions met) */}
+                {/* Video (only mounted when allowed) */}
                 {shouldPlayVideo && (
                     <video
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-90' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoReady ? 'opacity-90' : 'opacity-0'
+                            }`}
                         autoPlay
-                        muted={true} // Video is ALWAYS muted now
+                        muted
                         loop
                         playsInline
                         preload="metadata"
                         poster={posterSrc}
                         controlsList="nodownload nofullscreen noremoteplayback"
                         disablePictureInPicture
-                        onCanPlayThrough={() => setVideoLoaded(true)}
+                        onCanPlayThrough={() => setVideoReady(true)}
                     >
                         <source src={webmSrc} type="video/webm" />
                     </video>
                 )}
 
-                {/* Dark Overlay for Text Readability */}
+                {/* Dark overlay */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }}
-                ></div>
+                />
 
-                {/* Subtle Fog/Mist Overlay */}
-                <div className="absolute inset-0 opacity-20 bg-gradient-to-t from-black via-transparent to-black pointer-events-none"></div>
+                {/* Fog overlay */}
+                <div className="absolute inset-0 opacity-20 bg-gradient-to-t from-black via-transparent to-black pointer-events-none" />
             </div>
 
-            {/* Audio Toggle Button - Rendered outside the background container to ensure high Z-index */}
+            {/* Audio toggle button */}
             <button
-                onClick={() => setIsMuted(!isMuted)}
+                onClick={toggleMute}
                 className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-black/50 hover:bg-black/70 text-gold border border-gold/30 transition-all duration-300 backdrop-blur-sm group cursor-pointer"
-                aria-label={isMuted ? "Unmute Ambient Sound" : "Mute Ambient Sound"}
+                aria-label={isMuted ? 'Unmute Ambient Sound' : 'Mute Ambient Sound'}
             >
                 <div className="w-6 h-6 flex items-center justify-center relative">
                     {isMuted ? (

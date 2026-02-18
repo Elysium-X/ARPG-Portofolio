@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCapsLock } from '../../utils/useCapsLock'
 
 function Textarea({
   label,
@@ -11,14 +11,8 @@ function Textarea({
   rows = 4,
   className = '',
 }) {
-  const [isCapsLock, setIsCapsLock] = useState(false)
+  const { isCapsLock, capsLockHandlers } = useCapsLock()
   const errorId = error ? `${name}-error` : undefined
-
-  const checkCapsLock = (e) => {
-    if (e.getModifierState) {
-      setIsCapsLock(e.getModifierState('CapsLock'))
-    }
-  }
 
   return (
     <div className={`mb-4 ${className}`}>
@@ -38,9 +32,7 @@ function Textarea({
         aria-required={required}
         aria-invalid={!!error}
         aria-describedby={errorId}
-        onKeyUp={checkCapsLock}
-        onClick={checkCapsLock}
-        onBlur={() => setIsCapsLock(false)}
+        {...capsLockHandlers}
         className={`w-full px-4 py-3 bg-gray-800 bg-opacity-50 border-2 rounded-lg text-white font-fantasy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all resize-none ${error ? 'border-red-500' : 'border-gray-700'
           }`}
       />

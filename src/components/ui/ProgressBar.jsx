@@ -15,38 +15,40 @@ function ProgressBar({
   const percentage = (value / max) * 100
 
   useEffect(() => {
+    // Skip animation — set progress immediately
     if (!animated) {
       setProgress(percentage)
       return
     }
-    // Intersection Observer to trigger animation when element is visible
+
+    // Store timer ID so we can clear it on unmount
+    let timerId = null
+
+    // Animate only when the bar scrolls into view
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Start animation with delay when visible
-            const timer = setTimeout(() => {
+            // Delayed fill animation (stagger via `delay` prop)
+            timerId = setTimeout(() => {
               setProgress(percentage)
             }, delay)
-
-            // Cleanup timer and unobserve
+            // Stop watching once triggered
             observer.unobserve(entry.target)
-            return () => clearTimeout(timer)
           }
         })
       },
-      // Threshold is the percentage of the element that needs to be visible before the animation starts
-      { threshold: 0.1 }
+      { threshold: 0.1 } // Fire when 10% visible
     )
 
     if (containerRef.current) {
       observer.observe(containerRef.current)
     }
-    // Cleanup observer when component unmounts
+
+    // Cleanup on unmount: cancel pending timer + stop observer
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current)
-      }
+      if (timerId) clearTimeout(timerId)
+      observer.disconnect()
     }
   }, [percentage, animated, delay])
 

@@ -1,5 +1,6 @@
 import { Component } from 'react'
 
+
 /**
  * Error Boundary component to catch JavaScript errors in child components
  * Displays a fallback UI instead of crashing the entire app
@@ -20,7 +21,9 @@ class ErrorBoundary extends Component {
     }
 
     componentDidCatch(error, errorInfo) {
-        // Store error details for debugging in development mode
+        // Log error for debugging
+        console.error('[ErrorBoundary]', error, errorInfo)
+
         this.setState({
             error,
             errorInfo
