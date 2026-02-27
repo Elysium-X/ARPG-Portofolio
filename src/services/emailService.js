@@ -38,6 +38,7 @@ export const sendContactEmail = async (formData) => {
     const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
+        reply_to: formData.email,
         message: formData.message,
     }
 
