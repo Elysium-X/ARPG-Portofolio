@@ -36,10 +36,11 @@ export const sendContactEmail = async (formData) => {
     validateConfig()
 
     const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,
         reply_to: formData.email,
         message: formData.message,
+        title: `Message from ${formData.name}`,
+        time: new Date().toLocaleString(),
     }
 
     return emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
